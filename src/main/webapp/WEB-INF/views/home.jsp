@@ -1,13 +1,12 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
-	<title>Home</title>
+<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
+	<h1>Hello <c:out value="${role}"></c:out>!</h1>
+	<a href="<c:url value="/login"/>">login</a><br/>
+	<a href="<c:url value="/logout"/>">logout</a>
 </body>
 </html>

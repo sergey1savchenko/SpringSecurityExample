@@ -16,19 +16,24 @@ import com.my.security.model.UserAuth;
 
 @Component
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler {
-    
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth)
-	    throws IOException, ServletException {
-	UserAuth userAuth = (UserAuth) auth.getPrincipal();
-	HttpSession session = request.getSession();
-	switch(userAuth.getRole()) {
-	case "ADMIN":
-	    session.setAttribute("id", userAuth.getId());
-	    //session.setAttribute("role", "administrator");
-	    response.sendRedirect("admin");
-	    break;
-	}	
-    }
-    
+
+	@Override
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth)
+			throws IOException, ServletException {
+		UserAuth userAuth = (UserAuth) auth.getPrincipal();
+		HttpSession session = request.getSession();
+		switch(userAuth.getRole()) {
+		case "ADMIN":
+			session.setAttribute("id", userAuth.getId());
+			session.setAttribute("role", "administrator");
+			response.sendRedirect("admin");
+			break;
+		case "USER":
+			session.setAttribute("id", userAuth.getId());
+			session.setAttribute("role", "user");
+			response.sendRedirect("user");
+			break;
+		}	
+	}
+
 }

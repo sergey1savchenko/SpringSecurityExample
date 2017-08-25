@@ -18,6 +18,7 @@
 		<intercept-url pattern="/login" access="isAnonymous()" />
 		<intercept-url pattern="/home" access="permitAll" />
 		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
+		<intercept-url pattern="/user/**" access="hasRole('USER')" />
 			
 		<form-login login-page='/login' login-processing-url="/j_spring_security_check"
 			default-target-url="/home" always-use-default-target="false"
@@ -33,7 +34,7 @@
 
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailsServiceImpl">
-			
+			<password-encoder hash="md5"/>
 		</authentication-provider>
 	</authentication-manager>
 	
