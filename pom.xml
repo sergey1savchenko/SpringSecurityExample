@@ -27,7 +27,7 @@
 			<version>1.8.9</version>
 		</dependency>
 		
-				<!-- Apache Commons Upload -->
+		<!-- Apache Commons Upload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
@@ -183,7 +183,6 @@
 
 	<build>
 		<finalName>SecurityExample</finalName>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
